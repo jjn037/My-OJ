@@ -9,13 +9,20 @@ public:
         int m = mat[0].size();
         int n = mat.size();
         int ss = m + n;
-        for(int s = 0; s <= ss; s++){
-            int i = 0, j = s;
-            while(0 <= i < m && 0 <= j < n ){
+        bool change = true;
+        int loop = 0;
+        int i = 0, j = 0;
+        while(loop < ss){
+            while(i <= loop || i <= n){
                 results.push_back(mat[i][j]);
-                i++;
-                j--;
+                i++, j--;
             }
+            loop++;
+            while(j <= loop || j <= m){
+                results.push_back(mat[i][j]);
+                j++, i--;
+            }
+            loop++;
         }
         return results;
     }

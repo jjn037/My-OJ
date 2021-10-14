@@ -8,8 +8,16 @@ Update every!
 
 *128. 最长连续序列 https://leetcode-cn.com/problems/longest-consecutive-sequence/solution/ha-xi-zui-qing-xi-yi-dong-de-jiang-jie-c-xpnr/ 
 
-*1143. 最长公共子序列 ToDo
+*1143. 最长公共子序列 
 
 *498. 对角线遍历 ToDo
 
 *65. 不用加减乘除做加法 ToDo
+
+*53. 最大子序和 
+
+*2. 两数相加 ToDo
+
+*718. 最长重复子数组 ToDo
+
+*21. 合并两个有序链表 

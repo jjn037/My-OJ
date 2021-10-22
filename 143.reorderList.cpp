@@ -14,7 +14,7 @@
  */
 class Solution {
 public:
-    int reverse_node(ListNode* node){
+    void reverse_node(ListNode* node){
         ListNode* pre = NULL;
         ListNode* cur = node;
         int length = 0;
@@ -26,29 +26,30 @@ public:
             length ++;
         }
         node = pre;
-        return length;
+//        return length;
     }
 
     void reorderList(ListNode* head) {
-        if(head == nullptr) return ;
-        ListNode* dummy = new ListNode(0);
-        dummy->next = head;
-        int length = reverse_node(dummy);
-        ListNode* new_head = new ListNode(0);
-        ListNode* head_dummy = new_head;
-        for(int i = 0; i < length / 2; i++){
-            head_dummy->next = head;
-            head = head->next;
-            head_dummy = head_dummy->next;
-            head_dummy->next = dummy;
-            dummy = dummy->next;
-            head_dummy = head_dummy->next;
+        if(head == nullptr || head->next == nullptr) return;
+        ListNode* pre = head;
+        ListNode* cur = pre;
+        while(cur->next != nullptr && cur->next->next != nullptr){
+            pre = pre->next;
+            cur = cur->next->next;
         }
-        if(length % 2 == 1){
-            head_dummy->next = head->next;
+        ListNode* mid = pre->next;
+        pre->next = NULL;
+        reverse_node(mid);
+        // cur = head;
+        ListNode* cur = head;
+        pre = head;
+        while (pre != nullptr && cur != nullptr)
+        {
+            ListNode* tmp = cur->next;
+            cur->next = pre->next;
+            pre->next = cur;
+            pre = pre->next->next;
+            cur = tmp;
         }
-        else
-            head_dummy->next = nullptr;
-        head = new_head->next;
     }
 };

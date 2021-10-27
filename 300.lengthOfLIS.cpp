@@ -14,6 +14,6 @@ public:
             }
             results = max(results, dp[i]);
         }
-        return dp[nums.size()-1];
+        return results;
     }
 };
